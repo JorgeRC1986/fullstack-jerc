@@ -1,0 +1,134 @@
+import { Callout } from 'nextra/components'
+
+# How to customize your _Ghost_ site
+
+_**Ghost**_ provides a wide variety of options to customize your site so it matches with your brand and style. This options are available using the design settings.
+
+The design settings developed by _**Ghost**_ is a powerfull and easy-to-use tool that allows you customize your site without needing extensive knowledge of HTML code or programming skills. Using the settings, you can define properties for the whole site, the post page, the main page. Additionaly, provides a preview of your site for desktop and mobile devices.
+
+## Using the design settings
+
+To open the design settings, you have two options: 
+
+1. If this is the first time you are configuring the site as your just opened the account, click the second step of the set up wizzard displayed in the [admin page](/ghost/ghost-account#admin-page).
+
+![](/images/ghost005.png)
+
+2. If you have configured your site design or you have discarded the wizzard, you can open the design settings from _**Settings**_ → _**Site**_ → _**Design & branding**_, and click _**Customize**_.
+
+<Callout type="info">
+  For further customization options, you can consider using [code injection](https://ghost.org/help/code-injection-styles/) to add custom styling or create a custom theme, which can offer endless possibilities.
+</Callout>
+
+Once the editor is opened, you find the following sections.
+
+### Preview section
+
+This section provides the options to preview the style of your home and post pages on any device and lets you open your site in a new browser tab.
+
+![](/images/ghost006.png)
+
+The following table explains the options available.
+
+| Option | Description |
+|:-:|---|
+| ![](/images/ghost007.png) | Shows a preview of the main page of your site.<br />This is the default preview. |
+| ![](/images/ghost008.png) | Shows a preview of the page where you publish the posts. |
+| ![](/images/ghost009.png) | Allows you to see the preview on a desktop device.<br />This is the default preview. |
+| ![](/images/ghost010.png) | Allows you to see the preview on a mobile device. |
+| ![](/images/ghost011.png) | Opens the homepage in a new browser tab. |
+
+### Design section
+
+This section provides options related to the site design, including logos, backgrounds, fonts and the theme used. When you update a property in this section, it is automatically rendered in the [preview section](#preview-section); however, you must click the _**Save**_ button to apply the changes to your site.
+
+This section has the following options divided into tabs.
+
+#### Brand
+
+The _Brand_ section has the properties related to the color and icons in your style. In this section, you can find the following properties.
+
+##### Site description
+This description is used in your theme when supported and is also used as the default description for site-wide metadata.
+
+##### Accent color
+The accent color is the primary color used in your site's theme (supported themes only). This includes links, buttons, and text colors.
+
+<Callout type="info">
+    You can set the color using the color picker or typing it using RGB hexadecimal codes.
+
+    ![](/images/ghost012.png)
+</Callout>
+
+##### Publication icon
+This is the icon used as the Favicon (icon displayed in the broser tab) for your site. You'll also see this in the far corner when you're logged in to your publication. 
+
+Click the _**Upload icon**_ button and load one of your choice. The icons must be square and at least 60px in size.
+
+Once you select the icon, the editor replaces the _**Upload icon**_ button with a preview of the icon.
+
+![](/images/ghost013.png)
+
+To delete the icon, hover over the preview and click the trash icon.
+
+##### Publication logo
+This is the primary logo for your brand and is displayed within your theme. 
+
+Click the _**Upload logo**_ button and load one of your choice. Publication logos should have transparent backgrounds and be at least 600px x 72px in size.
+
+Once you select the logo, the editor replaces the _**Upload logo**_ button with a preview of the icon.
+
+![](/images/ghost014.png)
+
+To delete the publication logo, hover over the preview and click the trash icon.
+
+##### Publication cover
+The publication cover corresponds to a large banner image on your index pages. It is displayed behind the Site description and the subscription field in the main page. This image is optional and depends on the theme you select; some themes don't use this image as background. 
+
+When you create a new site, _**Ghost**_ sets a defualt image. To replace it, hover over the defualt image and click the trash icon to delete it.
+
+Then, click the _**Upload cover**_ button and load one of your choice.
+
+_**Ghost**_ also provides an editor for the cover image. To use the editor, hover over the image and click the pencil icon. This editor prvides options to resize or crop the image, apply filters, adjuts fine-tune image parameters, draw over the image, and add frames.
+
+#### Site wide
+
+This section shows the options that apply to all pages and post of your site. The options available depend on the theme selected. 
+
+You can find options to set the position of your site's logo, the background color, fonts for title and body and the messages you want to show in the _Sing up_ section at the bottom of the page.
+
+#### Homepage
+
+This section shows the options that apply to the main page of your site. The options available depend on the theme selected.
+
+By default, in this section you can find options to set the header style and text, define whether the site uses the cover image, the style of the post feed, and define whether the site shows the images in feed, and the post author and publish date.
+
+#### Post
+
+This section shows the options that apply to the post page of your site. The options available depend on the theme selected. When you select this tab, the preview section changes to the _Post_ page.
+
+By default, in this section you can find the following options:
+
+* **Show post metadata**: defines whether the Post shows the author and the publish date. 
+* **Enable drop caps on posts**: defines whether you use _drop caps_ in the post. _Drop caps_ option sets the first letter of the post capitalized and occupying two lines. Example:<br /><br />![](/images/ghost015.png)
+* **Show related articles**: defines whether the Post shows the related articles. _**Ghost**_ finds the related articles through the tags added to them.
+
+<Callout type="warning" emoji="⚠️">
+    The default options for [Site wide](#site-wide), [Homepage](#homepage), and [Post](#post) may not be available for all themes. Furthermore, you may also find more options when [selecting a new theme](#change-theme).
+</Callout>
+
+## Change theme
+
+By default, _**Ghost**_ uses the _Casper_ theme for the new sites. However, you can change the theme used by selecting the option at the bottom of the [_**Design section**_](#design-section).
+
+![](/images/ghost016.png)
+
+When you open this option, you can select a predefined theme available in the _Ghost theme marketplace_, view the installed themes, or use a theme created by you from scratch.
+
+![](/images/ghost017.png)
+
+<Callout type="info">
+    **Notes**
+    * The changes you perform in the [_**Design section**_](#design-section) generate a new version of the theme selected. To roll back to the default design, select the _**Installed**_ option and locate the legacy version of the theme, then, click _**Activate**_.
+    * Refer to [_Ghost_ official documentation site](https://ghost.org/help/installing-a-theme/) to learn more about themes and how to create your own theme.
+</Callout>
