@@ -3,31 +3,226 @@
 The Employee API allows you to create, update, delete and list the information of the employees in your company.
 
 ## API methods
-The Employee API offers four primary methods that you can use to manage employee information.
+The Employee API offers five primary methods that you can use to manage employee information.
 
-* [Get one or all employees information](#get-one-or-all-employees-information)
-* [Create a new employee](#)
-* [Update an employee](#)
-* [Delete an employee](#)
+* [Get all employees information](#get-all-employees-information)
+* [Get the information of an employee](#get-the-information-of-an-employee)
+* [Create a new employee](#create-a-new-employee)
+* [Update an employee](#update-an-employee)
+* [Delete an employee](#delete-an-employee)
 
-### Get one or all employees information
-This method allows you to retrieve the information of an employee or the information of all employees registered. 
+### Get all employees information
+This method allows you to retrieve the information of all the employees registered. 
 
 #### Request URL
-You must invoke a GET request to the following URLs according to your needs.
+You must invoke a **GET** request to the following URL.
 
-* Get all employees: `https://dummy.restapiexample.com/api/v1/employees`
-* Get an specific employee: `https://dummy.restapiexample.com/api/v1/employee/{id}`
+`https://dummy.restapiexample.com/api/v1/employees`
+
+#### Response parameters
+
+| Parameter | Format | Description |
+|---|---|---|
+| `status` | `string` | Result status of the method invocation. |
+| `data` | `list` | List of the Employees registered in the Database. |
+| `data[n].id` | `number` | Identifier of the employee registered. |
+| `data[n].employee_name` | `string` | Name of the employee registered. |
+| `data[n].employee_salary` | `number` | Salary of the employee registered. |
+| `data[n].employee_age` | `number` | Age of the employee registered. |
+| `data[n].profile_image` | `string` | URL of the image of the employee registered. |
+| `message` | `string` | Result message of the method invocation. When the method responses with error, only this parameter is returned. |
+
+#### Response examples
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "employee_name": "Tiger Nixon",
+            "employee_salary": 320800,
+            "employee_age": 61,
+            "profile_image": ""
+        },
+        {
+            "id": 2,
+            "employee_name": "Garrett Winters",
+            "employee_salary": 170750,
+            "employee_age": 63,
+            "profile_image": ""
+        }
+    ],
+    "message": "Successfully! All records has been fetched."
+}
+```
+
+### Get the information of an employee
+This method allows you to retrieve the information of an employee registered. 
+
+#### Request URL
+You must invoke a **GET** request to the following URL.
+
+`https://dummy.restapiexample.com/api/v1/employee/{id}`
 
 Where `{id}` represents the id of the employee you want to consult.
 
 #### Response parameters
 
+| Parameter | Format | Description |
+|---|---|---|
+| `status` | `string` | Result status of the method invocation. |
+| `data.id` | `number` | Identifier of the employee requested. |
+| `data.employee_name` | `string` | Name of the employee requested. |
+| `data.employee_salary` | `number` | Salary of the employee requested. |
+| `data.employee_age` | `number` | Age of the employee requested. |
+| `data.profile_image` | `string` | URL of the image of the employee requested. |
+| `message` | `string` | Result message of the method invocation. When the method responses with error, only this parameter is returned. |
 
 #### Response examples
 
-**Response for all employees request**
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "employee_name": "Tiger Nixon",
+        "employee_salary": 320800,
+        "employee_age": 61,
+        "profile_image": ""
+    },
+    "message": "Successfully! Record has been fetched."
+}
+```
 
+### Create a new employee
+This method allows you to create a new employee in the database.
 
+#### Request URL
+You must invoke a **POST** request to the following URL.
 
-**Response for one employee request**
+`https://dummy.restapiexample.com/api/v1/create`
+
+#### Request parameters
+
+| Parameter | Format | Description | Mandatory? |
+|---|---|---|:-:|
+| `name` | `string` | Name of the new employee. | No |
+| `salary` | `number` | Salary of the new employee. For this field, enter a postive numeric value. | No |
+| `age` | `number` | Age of the new employee. For this field, enter a postive numeric value. | No |
+
+#### Request examples
+
+```json
+{
+    "name": "Jorge Rivero",
+    "salary": "3700",
+    "age": "38"
+}
+```
+
+#### Response parameters
+
+| Parameter | Format | Description |
+|---|---|---|
+| `status` | `string` | Result status of the method invocation. |
+| `data.name` | `string` | Name of the employee created. |
+| `data.salary` | `string` | Salary of the employee created. |
+| `data.age` | `string` | Age of the employee requested. |
+| `data.id` | `number` | Identifier generated for the new employee. |
+| `message` | `string` | Result message of the method invocation. When the method responses with error, only this parameter is returned. |
+
+#### Response examples
+
+```json
+{
+    "status": "success",
+    "data": {
+        "name": "Jorge Rivero",
+        "salary": "3700",
+        "age": "38",
+        "id": 5378
+    },
+    "message": "Successfully! Record has been added."
+}
+```
+
+### Update an employee
+This method allows you to update one or more properties of an existing employee in the database.
+
+#### Request URL
+You must invoke a **PUT** request to the following URL.
+
+`https://dummy.restapiexample.com/api/v1/update/{id}`
+
+Where `{id}` represents the id of the employee you want to update.
+
+#### Request parameters
+
+| Parameter | Format | Description | Mandatory? |
+|---|---|---|:-:|
+| `name` | `string` | Name of the employee you want to update. | No |
+| `salary` | `number` | Salary of the employee you want to update. | No |
+| `age` | `number` | Age of the employee you want to update. | No |
+
+#### Request examples
+
+```json
+{
+    "name": "Juan Gomez",
+    "salary": "3700",
+    "age": "28"
+}
+```
+
+#### Response parameters
+
+| Parameter | Format | Description |
+|---|---|---|
+| `status` | `string` | Result status of the method invocation. |
+| `data.name` | `string` | Name of the employee updated. |
+| `data.salary` | `string` | Salary of the employee creaupdatedted. |
+| `data.age` | `string` | Age of the employee updated. |
+| `data.id` | `number` | Identifier of the employee updated. |
+| `message` | `string` | Result message of the method invocation. When the method responses with error, only this parameter is returned. |
+
+#### Response examples
+
+```json
+{
+    "status": "success",
+    "data": {
+        "name": "Juan Gomez",
+        "salary": "3700",
+        "age": "28"
+    },
+    "message": "Successfully! Record has been updated."
+}
+```
+### Delete an employee
+This method allows you to delete an existing employee in the database.
+
+#### Request URL
+You must invoke a **DELETE** request to the following URL.
+
+`https://dummy.restapiexample.com/api/v1/delete/{id}`
+
+Where `{id}` represents the id of the employee you want to delete.
+
+#### Response parameters
+
+| Parameter | Format | Description |
+|---|---|---|
+| `status` | `string` | Result status of the method invocation. |
+| `data` | `string` | Identifier of the employee deleted. |
+| `message` | `string` | Result message of the method invocation. When the method responses with error, only this parameter is returned. |
+
+#### Response examples
+
+```json
+{
+    "status": "success",
+    "data": "25",
+    "message": "Successfully! Record has been deleted"
+}
+```
